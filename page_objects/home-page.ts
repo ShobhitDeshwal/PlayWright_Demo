@@ -16,6 +16,7 @@ export class HomePage extends BasePage{
     private readonly drp_dwn_language : Locator;
 
     constructor(page:Page){
+        
         super(page);
         //Initialize locators
         this.lnk_home = this.page.getByText('Home');
