@@ -9,11 +9,11 @@ import path from "path";
  */
 export abstract class BasePage{
 
-    protected readonly page:Page;
+    protected readonly  page:Page;
     protected readonly lnk_homepage:Locator;
     
     constructor(page:Page){
-
+        
         //Initialize locators
         this.page = page;   
         this.lnk_homepage = this.page.locator('.nav-link:has-text("Home")');     
