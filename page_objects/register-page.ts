@@ -50,8 +50,8 @@ export class RegisterPage extends BasePage{
 
     public async fillAndRegisterUser():Promise<string>{  
         let email: string = await this.getUserEmail();       
-        await this.safeFill(this.input_firstname, RegistrationUserData.NewUser.firstname);
-        await this.safeFill(this.input_lastname, RegistrationUserData.NewUser.lastname);
+        await this.safeFill(this.input_firstname, RegistrationUserData.NewUser.first_name);
+        await this.safeFill(this.input_lastname, RegistrationUserData.NewUser.last_name);
         /**
          * fill is a native method of playwright which works on type=date 
          * for type = text try fill otherwise try to focus on field by click method and the use press sequentially and
@@ -60,7 +60,7 @@ export class RegisterPage extends BasePage{
         //await this.safeFill(this.input_dob, RegistrationUserData.NewUser.dob); 
         await this.input_dob.pressSequentially(RegistrationUserData.NewUser.dob);
         await this.safeFill(this.input_street, RegistrationUserData.NewUser.street);
-        await this.safeFill(this.input_postcode, RegistrationUserData.NewUser.postcode);
+        await this.safeFill(this.input_postcode, RegistrationUserData.NewUser.postal_code);
         await this.safeFill(this.input_city, RegistrationUserData.NewUser.city);
         await this.safeFill(this.input_state, RegistrationUserData.NewUser.state);
         await this.fillCountry(RegistrationUserData.NewUser.country);

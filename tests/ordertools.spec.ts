@@ -8,6 +8,7 @@ import { Cart } from '..//page_objects/cart/cart-page';
 import { SignIn } from '..//page_objects/cart/signIn-page';
 import { BillingAddress } from '..//page_objects/cart/billing-address-page';
 import { Payment } from '..//page_objects/cart/payment-page';
+import {POManager} from '../page_objects/PO-Manager';
 
 
 //End - to - End placing an order
@@ -19,36 +20,37 @@ test.describe('Ordering a tool', ()=>{
         const product_name = process.env.product_Name!;
         const payment_type = process.env.payemnt_Type;
 
-        const loginPage = new LoginPage(page);
-        await loginPage.navigateTo('/auth/login');
+        //const loginPage = new LoginPage(page);
+        const poManager = new POManager(page);
+        await poManager.loginPage.navigateTo('/auth/login');
         const user:RegisteredUserData[] =await readUsersFromFile();
-        await loginPage.login(user[0].email, user[0].password);
+        await poManager.loginPage.login(user[0].email, user[0].password);
 
-        const homepage = new HomePage(page);
-        await homepage.selectCategories(tool_category);
+        
+        await poManager.homePage.selectCategories(tool_category);
 
-        const handtools = new HandTools(page);
-        await handtools.openAProduct(product_name);
+        
+        await poManager.handToolsPage.openAProduct(product_name);
 
-        const productDetail = new ProductDetail(page);
-        await productDetail.quantityByFill('2');
-        await productDetail.addToCart();
+        
+        await poManager.productDetail.quantityByFill('2');
+        await poManager.productDetail.addToCart();
         await page.waitForTimeout(10000);
-        await homepage.gotToCart();
+        await poManager.homePage.gotToCart();
 
-        const cart = new Cart(page);
-        await cart.proceedToCheckout();
+        
+        await poManager.cartPage.proceedToCheckout();
 
-        const signIn = new SignIn(page);
-        await signIn.proceedToCheckout();
+        
+        await poManager.signIn.proceedToCheckout();
 
-        const billingAddress = new BillingAddress(page);
-        await billingAddress.proceedToCheckout();   
+       
+        await poManager.billingAddress.proceedToCheckout();   
 
-        const payment = new Payment(page);
-        await payment.choosePaymentMethod(payment_type);
-        await payment.confirmOrder();
-        await payment.successMessageDisplayed();
+        
+        await poManager.paymentPage.choosePaymentMethod(payment_type);
+        await poManager.paymentPage.confirmOrder();
+        await poManager.paymentPage.successMessageDisplayed();
         
     });
 });

@@ -1,9 +1,9 @@
 export interface RegisterNewUser{
-    firstname:string;
-    lastname:string;
+    first_name:string;
+    last_name:string;
     dob:string;
     street:string;
-    postcode:string;
+    postal_code:string;
     city:string;
     state:string;
     country:string;

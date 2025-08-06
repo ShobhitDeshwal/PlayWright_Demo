@@ -3,11 +3,11 @@ import{RegisterNewUser} from '../types/user-data';
 
 export class RegistrationUserData {
     static readonly NewUser :RegisterNewUser = {
-    firstname:'first',
-    lastname:'last',
+    first_name:'first',
+    last_name:'last',
     dob: '1999-08-30',
     street: 'XX Bogus Street',
-    postcode: '3029',
+    postal_code: '3029',
     city: 'Melbourne',
     state: 'Victoria',
     country: 'Australia',
