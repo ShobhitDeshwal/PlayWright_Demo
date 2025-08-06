@@ -27,7 +27,7 @@ export async function readUsersFromFile(): Promise<LoginUser[]> {
     }
 }
 
-export async function appendUserToFile(newUser:RegisteredUserData):Promise<void> {
+export async function appendUserToFile(newUser:LoginUser):Promise<void> {
     let users :RegisteredUserData[] = await readUsersFromFile();
     users.fill(newUser);   
     try{        
