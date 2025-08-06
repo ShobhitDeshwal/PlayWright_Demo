@@ -9,7 +9,7 @@ Prerequisite
 git node.js
 
 Getting the project to local
-In terminal : git clone https://github.com/skundu7/easygo-test.git
+In terminal : git clone https://github.com/ShobhitDeshwal/PlayWright_Demo.git
 
 Installation
 Run the below command in terminal to install all the node-modules npm install 
