@@ -14,6 +14,7 @@ export class HomePage extends BasePage{
     private readonly drp_dwn_profile:Locator;
     private readonly lnk_cart:Locator;
     private readonly drp_dwn_language : Locator;
+    private readonly profile_name: Locator;
 
     constructor(page:Page){
         
@@ -25,6 +26,7 @@ export class HomePage extends BasePage{
         this.drp_dwn_profile = this.page.locator('ul.dropdown-menu').nth(1);
         this.lnk_cart = this.page.getByLabel('cart');
         this.drp_dwn_language = this.page.locator('div #dropdown-animated');
+        this.profile_name = this.page.locator('#menu');
     }
     /**
      * Go to homepage
@@ -73,5 +75,10 @@ export class HomePage extends BasePage{
     async selectLanguage(language:string):Promise<void>{
         await this.waitForElement(this.drp_dwn_language);
         await this.drp_dwn_language.selectOption(language);
+    }
+
+    async getProfileName():Promise<string>{
+        await this.waitForElement(this.profile_name);
+        return await this.profile_name.textContent() || '';
     }
 }

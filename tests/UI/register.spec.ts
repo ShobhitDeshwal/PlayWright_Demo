@@ -1,7 +1,7 @@
 import {test, expect} from '@playwright/test';
-import {BasePage} from '../page_objects/base-page'
-import {RegisterPage} from '../page_objects/register-page';
-import { appendUserToFile, readUsersFromFile } from '../utils/fileUtils';
+import {BasePage} from '../../page_objects/base-page'
+import {RegisterPage} from '../../page_objects/register-page';
+import { appendUserToFile, readUsersFromFile } from '../../utils/fileUtils';
 
 test.describe('Registration test scenarios', ()=>{
     test('Register a new user', async({page, request})=>{                   
