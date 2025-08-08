@@ -1,6 +1,6 @@
 import {test, expect} from '@playwright/test';
-import{LoginPage} from '../page_objects/login-page'
-import { readUsersFromFile, RegisteredUserData } from '../utils/fileUtils';
+import{LoginPage} from '../../page_objects/login-page'
+import { readUsersFromFile, RegisteredUserData } from '../../utils/fileUtils';
 import * as path from 'path';
 
 

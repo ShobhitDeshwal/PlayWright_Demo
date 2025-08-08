@@ -1,8 +1,8 @@
 import {test, expect} from '@playwright/test';
-import {HomePage} from '../page_objects/home-page';
-import {LoginPage} from '../page_objects/login-page';
-import { HandTools } from '../page_objects/tool_categories/handtools';
-import { readUsersFromFile, RegisteredUserData } from '../utils/fileUtils';
+import {HomePage} from '../../page_objects/home-page';
+import {LoginPage} from '../../page_objects/login-page';
+import { HandTools } from '../../page_objects/tool_categories/handtools';
+import { readUsersFromFile, RegisteredUserData } from '../../utils/fileUtils';
 
 
 test('check Price', async({page})=>{
