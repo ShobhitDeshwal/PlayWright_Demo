@@ -10,7 +10,7 @@ export const datasuccess:RegisterNewUser  = {
                 postal_code: '3029',
                 city: 'melbourne',
                 state: 'victoria',
-                country: 'AU',
+                country: 'Australia',
                 phone: '0411111111',
                 password: '#Testing123!' ,                 
                 email: `first${Math.floor(Math.random() * 99)}@last.com`                  

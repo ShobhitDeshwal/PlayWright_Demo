@@ -9,11 +9,11 @@ import * as path from 'path';
 
     test('Valid login', async({page})=>{
         test.slow();
-        const index = Math.floor( Math.random(),9);
+        //const index = Math.floor( Math.random(),9);
         const loginPage = new LoginPage(page);
         await loginPage.navigateTo('/auth/login');
         const user:RegisteredUserData[] = await readUsersFromFile();
-        await loginPage.login(user[index].email, user[index].password);               
+        await loginPage.login(user[0].email, user[0].password);               
         expect(await loginPage.getPageTitle()).toBe('Overview - Practice Software Testing - Toolshop - v5.0');
     });
 

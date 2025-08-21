@@ -24,7 +24,6 @@ export  class ApiUtlis{
         return await this.apiContext.post(`${this.baseurl}${this.resource_login}`,{
             data:dataToUse
         });
-
     }
 }
 

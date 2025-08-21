@@ -4,7 +4,7 @@ import {readUsersFromFile} from '../../utils/fileUtils';
 
 
 test.describe('API login test scenarios',()=>{
-    test('API successful login', async({request})=>{       
+    test('API successful login', async({request})=>{          
         const apiUtil = new ApiUtlis(request);
         const response = await apiUtil.LoginAPI((await readUsersFromFile())[0]);        
         const resJson = await response.json(); 
