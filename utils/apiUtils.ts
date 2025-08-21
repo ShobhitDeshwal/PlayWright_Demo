@@ -4,7 +4,7 @@ import{RegisterNewUser, LoginUser} from '../types/user-data';
 
 
 export  class ApiUtlis{ 
-    private baseurl:string = process.env.BASE_API_URL || 'http://localhost:3000';
+    private baseurl:string = process.env.BASE_API_URL || 'https://api.practicesoftwaretesting.com';
     private resource_register:string = '/users/register';
     private resource_login = '/users/login';
     private apiContext : APIRequestContext;
