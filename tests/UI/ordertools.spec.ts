@@ -32,10 +32,9 @@ test.describe('Ordering a tool', ()=>{
         
         await poManager.productDetail.quantityByFill('2');
         await poManager.productDetail.addToCart();
-        //There is a loader have to wait for it to disappear. 
-        //Put a expect to make sure the loader is not visible or put a wait on 
-        //the element that is visible after the loader is gone.
-        await page.waitForTimeout(10000);
+        
+        expect.soft(await poManager.productDetail.toastVisible()).toBeTruthy();
+        await poManager.productDetail.toastNotVisible();
         await poManager.homePage.gotToCart();
         
         await poManager.cartPage.proceedToCheckout();

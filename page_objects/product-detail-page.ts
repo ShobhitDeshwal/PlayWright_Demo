@@ -18,7 +18,7 @@ export class ProductDetail extends BasePage{
         this.inp_quantity = this.page.locator('#quantity-input');  
         this.btn_addToCart = this.page.getByText('Add to cart');
         this.btn_addToFav = this.page.getByText('Add to favourites');
-        this.pop_up_toast = this.page.locator('#toast-container div');
+        this.pop_up_toast = this.page.locator('#toast-container');
     }
 
     async quantityByFill(quantity: string){        
@@ -39,5 +39,16 @@ export class ProductDetail extends BasePage{
 
     async addToCart():Promise<void>{
         await this.safeClick(this.btn_addToCart);
+    }
+
+    async toastVisible():Promise<boolean>{
+        await this.pop_up_toast.waitFor({state:'visible'});
+        console.log('Toast is visible');
+        return true;   
+    }
+
+    async toastNotVisible():Promise<void>{
+        await this.pop_up_toast.waitFor({state:'hidden'});   
+        console.log('Toast is gone');
     }
 }
